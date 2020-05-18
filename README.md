@@ -4,6 +4,10 @@ arXived is a tool that scrapes academic papers and metadata from [arXiv.org](htt
 
 See arXived live in action [here](https://shukieshah.github.io/arXived)!
 
+## Caveats
+
+Currently, the tool only supports scraping up to 1000 records at a time, due to API resource limits. Specifying a date range is entirely optional and will take significantly longer for earlier dates (pre 2019). Occasionally, a request might time out if the start date range is in the distant past and the chosen topic is very popular.
+
 ## Resources
 
 See the [arXiv API](https://arxiv.org/help/api) documentation for further information regarding how arXiv data is scraped.
