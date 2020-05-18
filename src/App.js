@@ -19,6 +19,7 @@ const App = () => {
   const MAX_TOP_MATCHES = 20;
   const STEP_SIZE = 500;
   const MAX_RESULT_LIMIT = 1000;
+  const CORS_ANYWHERE_PROXY = 'https://cors-anywhere.herokuapp.com/';
 
   // Default Setting
   const [query, setQuery] = useState({
@@ -39,9 +40,9 @@ const App = () => {
 
   // Use the arXiv HTTP API to scrape records based on query parameters
   const scrapeArXiv = async () => {
-
+    
     var start = 0;
-    var response = await fetch(`http://export.arxiv.org/api/query?search_query=all:"${query.topic}"&sortBy=submittedDate&sortOrder=descending&start=${start}&max_results=${query.limit}`);
+    var response = await fetch(`${CORS_ANYWHERE_PROXY}http://export.arxiv.org/api/query?search_query=all:"${query.topic}"&sortBy=submittedDate&sortOrder=descending&start=${start}&max_results=${query.limit}`);
     var responseString = await response.text();
 
     // Parse the entries from the XML response as DOM elements and store them in a results array
@@ -64,7 +65,7 @@ const App = () => {
         // Start index used for pagination 
         start = start + results.length;
         previousResults = results;
-        response = await fetch(`http://export.arxiv.org/api/query?search_query=all:"${query.topic}"&sortBy=submittedDate&sortOrder=descending&start=${start}&max_results=${STEP_SIZE}`);
+        response = await fetch(`${CORS_ANYWHERE_PROXY}http://export.arxiv.org/api/query?search_query=all:"${query.topic}"&sortBy=submittedDate&sortOrder=descending&start=${start}&max_results=${STEP_SIZE}`);
         responseString = await response.text();
         results = Array.prototype.slice.call((new window.DOMParser()).parseFromString(responseString, "text/xml").querySelectorAll('entry'));
 
@@ -73,7 +74,7 @@ const App = () => {
         var retries = 0;
         while (retries < 5 && results.length == 0) {
           console.log('Request failed, retrying API request ' + (retries + 1) + ' times');
-          response = await fetch(`http://export.arxiv.org/api/query?search_query=all:"${query.topic}"&sortBy=submittedDate&sortOrder=descending&start=${start}&max_results=${STEP_SIZE}`);
+          response = await fetch(`${CORS_ANYWHERE_PROXY}http://export.arxiv.org/api/query?search_query=all:"${query.topic}"&sortBy=submittedDate&sortOrder=descending&start=${start}&max_results=${STEP_SIZE}`);
           responseString = await response.text();
           results = Array.prototype.slice.call((new window.DOMParser()).parseFromString(responseString, "text/xml").querySelectorAll('entry'));
 
