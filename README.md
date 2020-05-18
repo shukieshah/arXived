@@ -1,8 +1,8 @@
 # arXived 
 
-arXived is a tool that scrapes academic papers and metadata from [arXiv.org](https://arxiv.org/) given a specific topic and date range. After scraping the necessary information, it generates a well formatted CSV to download arXiv data in bulk.
+arXived is a tool that scrapes academic papers and metadata from [arXiv.org](https://arxiv.org/) given a specific topic and date range. After scraping the necessary information, it generates a well formatted CSV file to download arXiv data in bulk.
 
-See arXived live in action [here!](https://shukieshah.github.io/arXived).
+See arXived live in action [here](https://shukieshah.github.io/arXived)!
 
 ## Resources
 
