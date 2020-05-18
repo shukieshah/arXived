@@ -6,7 +6,9 @@ See arXived live in action [here](https://shukieshah.github.io/arXived)!
 
 ## Caveats
 
-Currently, the tool only supports scraping up to 1000 records at a time, due to API resource limits. Specifying a date range is entirely optional and will take significantly longer for earlier dates (pre 2019). Occasionally, a request might time out if the start date range is in the distant past and the chosen topic is very popular.
+Currently, the tool only supports scraping up to 1000 records at a time, due to API resource limits. 
+
+By default, given a topic and result limit, the app returns the most recent arXiv records. Specifying a date range is entirely optional and will take significantly longer for earlier dates (pre 2019). Occasionally, a request might time out if the start date range is in the distant past and the chosen topic is very popular.
 
 ## Resources
 
