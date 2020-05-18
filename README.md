@@ -1,8 +1,17 @@
+See arXived live in action [here](https://shukieshah.github.io/arXived).
+
+
 This project was bootstrapped with [Create React App](https://github.com/facebook/create-react-app).
 
 ## Available Scripts
 
 In the project directory, you can run:
+
+### `npm install`
+
+to install all the necessary dependencies required by the app.
+
+Then, you may run:
 
 ### `npm start`
 
